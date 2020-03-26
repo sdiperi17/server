@@ -28,7 +28,10 @@ module.exports = app => {
   });
 
   app.get("/auth/logout", (req, res) => {
+    // logout() is a function that is attached automatically to the request object by passport
+    // it takes the cookie that contains our users ID and it kills the ID
     req.logout();
+
     res.redirect("/");
   });
 };
